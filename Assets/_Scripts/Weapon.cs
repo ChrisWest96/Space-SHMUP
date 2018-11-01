@@ -80,7 +80,7 @@ public class Weapon : MonoBehaviour {
             this.gameObject.SetActive(true);
         }
         def = Main.GetWeaponDefinition(_type);
-        collar.renderer.material.color = def.color;
+        collar.GetComponent<Renderer>().material.color = def.color;
         lastShot = 0; // You can always fire immediately after _type is set.
     }
     public void Fire()
@@ -97,15 +97,15 @@ public class Weapon : MonoBehaviour {
         {
             case WeaponType.blaster:
                 p = MakeProjectile();
-                p.rigidbody.velocity = Vector3.up * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
                 break;
             case WeaponType.spread:
                 p = MakeProjectile();
-                p.rigidbody.velocity = Vector3.up * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
                 p = MakeProjectile();
-                p.rigidbody.velocity = new Vector3(-.2f, 0.9f, 0) * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = new Vector3(-.2f, 0.9f, 0) * def.velocity;
                 p = MakeProjectile();
-                p.rigidbody.velocity = new Vector3(.2f, 0.9f, 0) * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = new Vector3(.2f, 0.9f, 0) * def.velocity;
                 break;
         }
     }
