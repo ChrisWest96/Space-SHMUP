@@ -62,7 +62,7 @@ public class PowerUp : MonoBehaviour
         // Use u to determine the alpha value of the Cube & Letter
         if (u > 0)
         {
-            Color c = GetComponent<Renderer>().material.color;
+            Color c = cube.GetComponent<Renderer>().material.color;
             c.a = 1f - u;
             cube.GetComponent<Renderer>().material.color = c;
             // Fade the Letter too, just not as much
